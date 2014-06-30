@@ -572,6 +572,9 @@ ncecho " [x] Building the packages "
 dpkg-buildpackage -b >> "$log" 2>&1 &
 pid=$!;progress_can_fail $pid
 
+ncecho ${WORK_PATH}/${JAVA_DEV}${JAVA_VER}_${NEW_VERSION}_${LSB_ARCH}
+ncecho ${WORK_PATH}/${JAVA_DEV}${JAVA_VER}_${NEW_VERSION}_${LSB_ARCH.changes}
+
 if [ -e ${WORK_PATH}/${JAVA_DEV}${JAVA_VER}_${NEW_VERSION}_${LSB_ARCH}.changes ]; then
     # Remove any existing .deb files if the 'clean' option was selected.
     if [ ${BUILD_CLEAN} -eq 1 ]; then
